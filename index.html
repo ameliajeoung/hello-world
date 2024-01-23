@@ -3,45 +3,292 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hello world!</title>
+    <title>Exercise 3</title>
     <style>
-        body {
-            background-color:antiquewhite;
-            color:rgb(94, 79, 47);
-            margin:20;
-            font-family:"Helvetica";
+   *{
+    margin: 0px;
+   }
+   body{
+    font-family: 'Courier New', Courier, monospace;
+   }
+   .grid-container{
+        height: 100vh;
+        display: grid;
+            grid-template-columns: 20% 60% 20%;
+            grid-template-rows: 2fr 8fr 1fr; 
+    }
+    .heading{
+        background-color: crimson;
+        grid-column-end:  span 3;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        padding-bottom: 10px;
+        font-size: 20pt;
+    }
+    
+    .left-bar{
+       background-color:antiquewhite;
+       padding: 20px;
+    }
+    .main{
+       background-color:white;
+       padding: 20px;
+    }
+    .right-bar{
+
+       padding: 20px;
+        background-color: antiquewhite;
+    }
+    .footer{
+        background-color:crimson;
+        grid-column-end:  span 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h1{
+        font-family: Arial, Helvetica, sans-serif;
+        color: antiquewhite;
+    }
+    h2{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 600;
+    }
+    h3{
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic;
+        margin-bottom: 5px;
+    }
+    h6{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 200;
+        font-size: 12pt;
+        color: beige;
+    }
+    li{
+        margin-bottom: 10px;
+    }
+    p{
+        margin-bottom: 10px;
+    }
+    a{
+        text-decoration: none;
+        color:rgb(125, 201, 226);
+    }
+    a:hover{
+        color:white;
+    }
+    img{
+        object-fit: cover;
+        width: 200px;
+        height: 200px;
+        margin-top: 15px;
+    }
+    .images{
+        display: flex;
+        justify-content: center;
+    }
+    #one {
+            display: block;
+        }
+    #two {
+            display: none;
+        }
+    .images:hover #one {
+            display: none;
+        }
+    .images:hover #two {
+            display: block; 
+        }
+    #image {
+            display: block;
+        }
+    #recipe {
+            display: none;
+            object-fit: cover;
+            width: 200px;
+            height: 120px;
+            padding-top: 80px;
+            margin-top: 15px;
+            background-color: crimson;
+            position: absolute;
             text-align: center;
-        } 
-        h1 {
-            color:rgb(193, 102, 175);
-            font-size:40px;
-            margin:0;
-            font-family:Arial, Helvetica, sans-serif;
-            font-style:oblique;
+            color: antiquewhite;
         }
-        h2 {
-            margin:0;
-            color:rgb(178, 129, 25);
-            font-family:"Arial";
-            letter-spacing: 2.5px;
+    .images:hover #recipe {
+            display: block; 
+            opacity: 50%;
         }
-        img {
-            width:350px;
-            
-        }
+    .images:hover #text{
+        display: block;
+        opacity: 100%;
+    }
+    .container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 15px;
+        width: 15px;
+        border: 1px solid;
+        border-color: rgb(125, 201, 226);
+    }
+    p:checked{
+        text-decoration: line-through;
+    }
+    .container:hover input ~ .checkmark {
+        background-color:rgb(219, 233, 246);
+    }
+    .container input:checked ~ .checkmark {
+        background-color: rgb(125, 201, 226);
+    }
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+    .container input:checked ~ .checkmark:after{
+        display: block;
+    }
+    .container .checkmark:after {
+        left: 5px;
+        top: 1px;
+        width: 3px;
+        height: 8px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
     </style>
 </head>
+
 <body>
-    <h1>hello world!!!!</h1>
-    <h2>what's going on???</h2>
-    <p><a href="https://en.wikipedia.org/wiki/Hamster" target="_blank">about hamsters</a></p>
-    <p style="margin-left: 40px;0">Today is January 9th, 2024 and I am in Providence, Rhode Island</p>
-    <p style="margin-left: 40px;0">...</p>
-    <p style="margin-left: 40px;0">i'm a sophomore in illustration at the rhode island school of design</p>
-    <p style="margin-left: 40px;0">i grew up with a lot of hamsters as pets and i would make my usernames relating to hamsters, so i suppose this is like an reference to that haha</p>
-    <p style="margin-left: 40px;0"> since this is the first website i have ever made with code</p>
-    <p style="margin-left: 40px;0">...</p>
-    <p>web design by <em>amelia jeoung</em> :)</p>
-    <img src="images/hamster.jpg" alt="hamster">
+    <div class="grid-container">
+        <div class="heading">
+            <h1>snickerdoodles</h1>
+        </div>
+
+        <div class="left-bar">
+            <h3> ingredients</h3>
+                <li> 1 cup unsalted butter</li>
+                <li> 1.5 cups sugar</li>
+                <li> 2 large eggs</li>
+                <li> 2 tsp vanilla extract</li>
+                <li> 2.75 cups flour</li>
+                <li> 1 tsp cream of tartar</li>
+                <li> 0.5 tsp baking soda</li>
+                <li> 1 tsp salt</li>
+                <li> 0.25 cup sugar</li>
+                <li> 1.5 tbsp cinnamon</li>
+            <div class="images">
+                <img id="one" src="/images/cake.jpg" alt="hamster and cake">
+                <img id="two" src="/images/eat.jpg" alt="hamster and cake">
+            </div>
+        </div>
+
+        <div class="main">
+            <h3> instructions</h3>
+            <p>
+                <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+                </label>
+            </p>
+            <p>
+                <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span> in large mixing bowl, cream together butter and sugar until light and fluffy (about 4-5 minutes)
+                </label>
+            </p>
+            <p>
+                <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span> scrape the sides of the bowl and add eggs and vanilla. combine
+                </label>
+            </p>
+            <p>
+                <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span> stir in flour, cream of tartar, baking soda, and salt, until combined
+                </label>
+            </p>
+            <p>
+                <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span> in a small bowl, stir together sugar and cinammon
+                </label>
+            </p>
+            <p>
+                <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span> roll dough into small balls until round and smooth. drop into the cinnamon-sugar mixture and coat well
+                </label>
+            </p>
+            <p>
+                <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span> place on a parchment paper-lined baking sheet. *to make flatter snickerdoodles, press down in the center of the ball*
+        
+                </label>
+            </p>
+            <p>
+                <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span> bake for 9-11 minutes. after removing, let cool for several minutes before removing from pan
+                </label>
+            </p>
+            <p>
+                <label class="container">
+                <input type="checkbox">
+                <span class="checkmark"></span> enjoy!
+                </label>
+            </p>
+           </div>
+
+        <div class="right-bar">
+            <h3>other things to bake!</h3>
+            <div class="images">
+                <img id="image" src="/images/strawb.jpg" alt="strawberry shortcake">
+                <div id="recipe">
+                    strawberry shortcake!
+                </div>
+            </div>
+            <div class="images">
+                <img id="image" src="/images/red.jpg" alt="strawberry shortcake">
+                <div id="recipe">
+                    red velvet!
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <h6> 
+                recipe from <a href="https://www.modernhoney.com/the-best-snickerdoodle-cookie-recipe/">modern honey</a>
+            </h6>
+    </div>
+
+    
+    </div>
 </body>
 </html>
